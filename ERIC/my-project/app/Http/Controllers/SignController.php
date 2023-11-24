@@ -17,5 +17,13 @@ class SignController extends Controller
         return view('signup')->with('resultado',$textFinal);
         
     }
+    
+    public function hola(Request $request, $persona = ''){
+        dd($request);
+        $textoFinal = 'Hola, ';
+        $textoFinal .= ($persona == '')? 'mundo':$persona;
+
+        return view(view:'mensaje')-> with (['texto' => $textFinal]);
+    }
 
 }

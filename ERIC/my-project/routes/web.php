@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SignController;
+use App\Http\Controllers\PrimerController;
+use App\Http\Controllers\Admin\admin;
 
 
 /*
@@ -55,5 +57,11 @@ Route::prefix('ericsanchez')->group(function(){
     Route::get('/signin/{param1}/{param2}/{param3}/{param4}',[SignController::class, 'signin']);
     Route::get('/signup/{param1}/{param2}/{param3}',[SignController::class, 'signup']);
 
+
+});
+
+
+Route::middleware(['admin_db'])->group(function(){
+    Route::get('/centres',[admin::class,'centres']);
 
 });
