@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <h1>{{$resultado}}</h1>
+    <h1>Registrar-se</h1>
     <form method="POST" action="../crear_usuari/index.php">
         <h3>ID:<input name="identifier"></input><h3>
         <h3>ROL:<select name="rol">
@@ -20,7 +20,7 @@
         <h3>PASSWORD:<input name="passwd"></input><h3>
         <h3>ACTIVE:<input type="checkbox" name="activo"></input><h3>
         <input type="submit" value="submit" name = "send"/><br>
-        <a href="signin">Iniciar Session</a>
+        <a href="{{  route('signin')}}  ">Iniciar Session</a>
     </form> 
 </body>
 </html>
