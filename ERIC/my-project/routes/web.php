@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SignController;
+use App\Http\Controllers\PrimerController;
 
 
 /*
@@ -51,9 +52,22 @@ Route :: get('/ericsanchez/signup', function (){
 */
 
 //Sign In y Up por Controller
+/*Practica 1
 Route::prefix('ericsanchez')->group(function(){
     Route::get('/signin/{param1}/{param2}/{param3}/{param4}',[SignController::class, 'signin']);
     Route::get('/signup/{param1}/{param2}/{param3}',[SignController::class, 'signup']);
 
 
+});*/
+
+//Practica 2
+Route::prefix('ericsanchez')->group(function(){
+    Route::get('/signi',[SignController::class, 'signin'])->name('signin');
+    Route::get('/signu',[SignController::class, 'signup'])->name('signup');
+
+
+});
+
+Route::prefix('metodopost')->group(function(){
+    Route::post('products', [SignController::class,'products'])->name('products');
 });
