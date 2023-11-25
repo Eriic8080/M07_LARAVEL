@@ -9,7 +9,8 @@
 <body>
   
     
-  <form method="POST">
+  <form method="POST" action="{{route('users')}}">
+    @csrf
         <div>
             <label>Correo Electronico</label><br>
             <input type="text" name="email"><br>
@@ -17,16 +18,15 @@
 
         <div>
             <label>Contraseña</label><br>
-            <input type="text" name="password"><br>
+            <input type="text" name="password"><br>   
         </div>
         <div>
             <input type="checkbox" name="remember">
             <label>Recuerda-me</label><br>
+            <button type="submit" value="Enviar" name="send">ENVIAR
           </div>
-        <input type="submit" value="Enviar" name="signin">
+          
         <div>
-          <a href=" {{ route('signup') }}">SIGN UP</a>
-        </div>
 
   </form>
 </body>

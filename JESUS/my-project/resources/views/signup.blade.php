@@ -38,7 +38,7 @@
     <input type="checkbox" name="active"><br>
   </div>
 
-  <input type="submit" value="Enviar" name="send">
+  <button type="submit" value="Enviar" name="send">
 
   <div>
     <a href=" {{ route('signin') }}">SIGN IN</a>

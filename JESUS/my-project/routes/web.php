@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SignController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,7 +50,3 @@ Route::prefix('paco2')->group(function(){
     Route::get('/signup', [SignController::class, 'signup2']) ->name('signup');
 });
 
-//Metodo post para productos
-Route::prefix('metodepost')->group(function(){
-   Route::post('/products', [SignController::class, 'products'])->name('products'); 
-});

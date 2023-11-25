@@ -5,6 +5,7 @@ version: '2'
 
 services:
   mariadb:
+    container_name: mariadb_2
     image: docker.io/bitnami/mariadb:11.1
     environment:
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
@@ -24,11 +25,10 @@ services:
       - './my-project:/app'
     depends_on:
       - mariadb
-
   phpmyadmin:
     image: phpmyadmin
-    container_name: phpmyadmin
+    container_name: phpmyadmin_2
     ports:
-      -8080:80
-    enviroment:
-      -PMA_ARBITRARY=1
+      - 8080:80
+    environment:
+      - PMA_ARBRITRARY=1

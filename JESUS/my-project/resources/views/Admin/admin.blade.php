@@ -6,6 +6,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>{{$result}}</h1>
+<form method="POST" action="{{ route('users') }}">
+    @csrf
+<h1>BENVINGUT/DA ADMIN</h1>
+    <a href="{{ route('centres') }}">CENTRES</a>
+    <a href="{{ route('professorat') }}">PROFESSORAT</a>
+    <a href="{{ route('alumnat') }}">ALUMNAT</a>
+    <div>
+    
+    <a href="{{route('users')}}">Log Out</a>
+    </div>
 </body>
 </html>
