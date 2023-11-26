@@ -7,15 +7,28 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {   
 
-    public function usuaris(){
-        return view('Admin.admin')->with(['result'=>'Aqui se muestran los centros que el rol admin puede ver']);
+    public function bienvenidaAdmin(Request $request){
+        $email = $request->input('email');
+        $password = $request->input('passwd');
 
+        $emailCorrecta = 'eric@gmail.com'; 
+        $passwordCorrecta = 'eric'; 
+
+        if ($email === $emailCorrecta && $password === $passwordCorrecta) {
+            return view('Admin.inicioAdmin');
+        } else {
+            return view('signin');
+        }
     }
 
-
-    //hay que hacer 3 funciones mas una para cada cosa
     public function centres(){
-        return view('Admin.admin')->with(['result'=>'Aqui se muestran los centros que el rol admin puede ver']);
-
+        return view('Admin.centres');
     }
+    public function professorat(){
+        return view('Admin.professorat');
+    }
+    public function alumnat(){
+        return view('Admin.alumnat');
+    }
+
 }
