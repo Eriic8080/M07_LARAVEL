@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SignController;
 use App\Http\Controllers\PrimerController;
+use App\Http\Controllers\Admin\AdminController;
+
 
 
 /*
@@ -62,12 +64,20 @@ Route::prefix('ericsanchez')->group(function(){
 
 //Practica 2
 Route::prefix('ericsanchez')->group(function(){
-    Route::get('/signi',[SignController::class, 'signin'])->name('signin');
-    Route::get('/signu',[SignController::class, 'signup'])->name('signup');
+    Route::get('/signin',[SignController::class, 'signin'])->name('signin');
+    Route::get('/signup',[SignController::class, 'signup'])->name('signup');
 
 
 });
 
-Route::prefix('metodopost')->group(function(){
-    Route::post('products', [SignController::class,'products'])->name('products');
+Route::prefix('admin_db')->group(function(){
+    Route::post('/usuaris', [AdminController::class, 'bienvenidaAdmin'])->name('bienvenidaAdmin');
+    Route::get('/centres', [AdminController::class, 'centres'])->name('centres');
+    Route::view('/bienvenido', 'Admin.inicioAdmin')->name('inicio');
+    Route::get('/professorat', [AdminController::class, 'professorat'])->name('professorat');
+    Route::get('/alumnat', [AdminController::class, 'alumnat'])->name('alumnat');
+
 });
+
+
+
