@@ -6,16 +6,18 @@
     <title>Login</title>
 </head>
 <body>
-    <h1>{{ $result }}</h1>
+    <h1>Login</h1>
     
 
-    <form method="POST" action="../iniciar_sessio/userLogin.php">
+    <form method="POST" action="{{ route('bienvenidaAdmin') }}">
+            @csrf 
+        
             <h3>Email: <input type="email" name="email"></h3>
             <h3>Contrasenya: <input type="text" name="passwd"></h3>
             <h3><input type="checkbox" name="recordarme"> Remember me:</h3>
             <input type="submit" name="enviar"><br><br>
 
-            <a href="signup">Crear usuari</a>
+            <a href="{{ route('signup') }}">Crear usuari</a>
             
 
     </form>
