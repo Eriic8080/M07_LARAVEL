@@ -4,5 +4,6 @@
 
 
     Route::middleware(['admin_db'])->group(function(){
-        Route::get('/centres',[AdminController::class,'centres']);
-    });
+        Route::get('/bienvenidaAdmin',[AdminController::class,'bienvenidaAdmin']);
+    })->name('admin_db');
+?>
