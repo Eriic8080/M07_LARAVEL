@@ -9,8 +9,8 @@
     <h1>Login</h1>
     
 
-    <form method="POST" action="{{route('usuarios')}}">   <!-- cambiar la direccion del action -->
-        @csrf 
+    <form method="POST" action="{{ route('bienvenidaAdmin') }}">
+            @csrf 
         
             <h3>Email: <input type="email" name="email"></h3>
             <h3>Contrasenya: <input type="text" name="passwd"></h3>
