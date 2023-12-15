@@ -33,10 +33,23 @@
                     <td><?= $usuario['city'] ?></td>
                 </tr>
             <?php endforeach; ?>
+
+            @foreach ($centros as $centro)
+                <tr>
+                    <td><?= $centro['id'] ?></td>
+                    <td><?= $centro['name'] ?></td>
+                    <td><?= $centro['adress'] ?></td>
+                    <td><?= $centro['cp'] ?></td>
+                    <td><?= $centro['city'] ?></td>
+                </tr>
+            @endforeach
+
         </tbody>
     </table>
 
-    <a href="{{ route('inicio')}}">ADMIN VISTA</a>
+    <a href="{{ route('inicio')}}">ADMIN VISTA</a><br>
+    <a href="{{ route('crearCentros')}}">Add Centre</>
+
     
 </body>
 </html>
