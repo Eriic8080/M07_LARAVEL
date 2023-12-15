@@ -70,8 +70,10 @@ class CentresController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Centre $centre)
+    public function destroy($id)
     {
-        //
+    Centre::destroy($id);
+
+    return redirect()->route('centres')->with('success', 'Centro eliminado exitosamente');    
     }
 }
