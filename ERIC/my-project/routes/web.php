@@ -79,6 +79,8 @@ Route::prefix('admin_db')->group(function(){
     Route::get('/alumnat', [AdminController::class, 'alumnat'])->name('alumnat');
     Route::view('/crearCentros','Admin.crearCentros')->name('crearCentros');
     Route::post('/crearCentros',[CentresController::class, 'store'])->name('creandoCentro');
+    Route::delete('/deleteCentre/{id}', [CentresController::class, 'destroy'])->name('eliminarCentro');
+
 
 });
 
