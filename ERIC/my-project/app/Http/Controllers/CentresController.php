@@ -74,6 +74,6 @@ class CentresController extends Controller
     {
     Centre::destroy($id);
 
-    return redirect()->route('centres')->with('success', 'Centro eliminado exitosamente');    
+    return redirect()->route('centres');    
     }
 }
