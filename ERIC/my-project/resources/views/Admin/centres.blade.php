@@ -41,6 +41,13 @@
                     <td><?= $centro['adress'] ?></td>
                     <td><?= $centro['cp'] ?></td>
                     <td><?= $centro['city'] ?></td>
+                    <td>
+                        <form action="{{ route('eliminarCentro', ['id' => $centro->id]) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit">DELETE</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
 
