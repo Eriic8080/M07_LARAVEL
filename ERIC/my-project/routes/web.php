@@ -4,8 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SignController;
 use App\Http\Controllers\PrimerController;
 use App\Http\Controllers\Admin\AdminController;
-
-
+use App\Http\Controllers\AlumneController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,7 +74,19 @@ Route::prefix('admin_db')->group(function(){
     Route::get('/centres', [AdminController::class, 'centres'])->name('centres');
     Route::view('/bienvenido', 'Admin.inicioAdmin')->name('inicio');
     Route::get('/professorat', [AdminController::class, 'professorat'])->name('professorat');
-    Route::get('/alumnat', [AdminController::class, 'alumnat'])->name('alumnat');
+    //Para mostrar los alumnos en el form
+    Route::get('/alumnat', [AlumneController::class, 'index'])->name('alumnat');
+    //para redirigir al formulario
+    Route::view('/crearAlumno', 'Admin.creacioDades')->name('crearAlumne');
+    //Para enviar el form a la BDD
+    Route::post('/crearAlumno', [AlumneController::class, 'store'])->name('crearAlumne');
+    //Para borrar los alumnos del form
+    Route::delete('/borrarAlumne/{id}', [AlumneController::class, 'destroy'])->name('eliminarAlumne');
+
+    Route::get('/editAlumnes/{id}',[AlumneController::class, 'edit'])->name('modificarAlumneForm');
+    Route::put('/editAlumne/{id}', [AlumneController::class, 'update'])->name('modificarAlumne');
+    
+
 
 });
 

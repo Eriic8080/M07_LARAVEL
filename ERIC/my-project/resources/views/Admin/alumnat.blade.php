@@ -8,12 +8,10 @@
 <body>
 <h1>LLista Alumnat</h1>
     <?php
-        $alumes = [
-            ['id' => 1, 'name' => 'eric', 'surname' => 'sanchez', 'rol' => 'Alumne', 'email' => 'eric@gmail'],
-            ['id' => 2, 'name' => 'eric', 'surname' => 'sanchez', 'rol' => 'Alumne', 'email' => 'eric@gmail'],
-            ['id' => 3, 'name' => 'eric', 'surname' => 'sanchez', 'rol' => 'Alumne', 'email' => 'eric@gmail'],
-            ['id' => 4, 'name' => 'eric', 'surname' => 'sanchez', 'rol' => 'Alumne', 'email' => 'eric@gmail'],
-            ['id' => 5, 'name' => 'eric', 'surname' => 'sanchez', 'rol' => 'Alumne', 'email' => 'eric@gmail'],
+        $test= [
+            ['id' => 1, 'name' => 'test', 'surname' => 'test', 'rol' => 'Alumne', 'email' => 'test@gmail'],
+            ['id' => 2, 'name' => 'test1', 'surname' => 'test1', 'rol' => 'Alumne', 'email' => 'test1@gmail'],
+            
 
         ];
     ?>
@@ -29,18 +27,32 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($alumes as $alumne): ?>
-                <tr>
-                    <td><?= $alumne['id'] ?></td>
-                    <td><?= $alumne['name'] ?></td>
-                    <td><?= $alumne['surname'] ?></td>
-                    <td><?= $alumne['rol'] ?></td>
-                    <td><?= $alumne['email'] ?></td>
+            
+            @foreach ($alumne as $alumnes)
+            <tr>
+                    <td><?= $alumnes['Id'] ?></td>
+                    <td><?= $alumnes['name'] ?></td>
+                    <td><?= $alumnes['surname'] ?></td>
+                    <td><?= $alumnes['rol'] ?></td>
+                    <td><?= $alumnes['email'] ?></td>
+                    <td>
+                        <form action="{{ route('eliminarAlumne', ['id' => $alumnes['Id']]) }}" method="post">
+                            @csrf 
+                            @method('DELETE')
+                            <button type="submit">Delete</button>
+                        </form>
+
+                        <td>
+                            <a href="{{ route('modificarAlumneForm', ['id' => $alumnes['Id']]) }}">EDIT</a>
+                        </td>
+                    </td>
                 </tr>
-            <?php endforeach; ?>
+            @endforeach
+
+            
         </tbody>
     </table>
     <a href="{{ route('inicio') }}">ADMIN VISTA</a>
-    
+    <a href="{{ route('crearAlumne') }}">Crear Alumne</a>
 </body>
 </html>
