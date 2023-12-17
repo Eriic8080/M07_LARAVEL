@@ -48,13 +48,16 @@
                             <button type="submit">DELETE</button>
                         </form>
                     </td>
+                    <td>
+                        <a href="{{ route('formModificarCentro', ['id' => $centro->id]) }}">EDIT</a>
+                    </td>
                 </tr>
             @endforeach
 
         </tbody>
     </table>
 
-    <a href="{{ route('inicio')}}">ADMIN VISTA</a><br>
+    <a href="{{ route('inicio')}}">ADMIN VISTA</a>
     <a href="{{ route('crearCentros')}}">Add Centre</>
 
     
