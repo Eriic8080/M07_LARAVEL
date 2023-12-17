@@ -24,21 +24,12 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($usuarios as $usuario): ?>
-                <tr>
-                    <td><?= $usuario['id'] ?></td>
-                    <td><?= $usuario['name'] ?></td>
-                    <td><?= $usuario['adress'] ?></td>
-                    <td><?= $usuario['cp'] ?></td>
-                    <td><?= $usuario['city'] ?></td>
-                </tr>
-            <?php endforeach; ?>
 
             @foreach ($centros as $centro)
                 <tr>
                     <td><?= $centro['id'] ?></td>
                     <td><?= $centro['name'] ?></td>
-                    <td><?= $centro['adress'] ?></td>
+                    <td><?= $centro['address'] ?></td>
                     <td><?= $centro['cp'] ?></td>
                     <td><?= $centro['city'] ?></td>
                     <td>
