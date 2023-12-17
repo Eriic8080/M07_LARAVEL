@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SignController;
 use App\Http\Controllers\PrimerController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\CentresController;
 
 
 
@@ -72,11 +73,15 @@ Route::prefix('ericsanchez')->group(function(){
 
 Route::prefix('admin_db')->group(function(){
     Route::post('/usuaris', [AdminController::class, 'bienvenidaAdmin'])->name('bienvenidaAdmin');
-    Route::get('/centres', [AdminController::class, 'centres'])->name('centres');
+    Route::get('/centres', [CentresController::class, 'index'])->name('centres');
     Route::view('/bienvenido', 'Admin.inicioAdmin')->name('inicio');
     Route::get('/professorat', [AdminController::class, 'professorat'])->name('professorat');
     Route::get('/alumnat', [AdminController::class, 'alumnat'])->name('alumnat');
-
+    Route::view('/crearCentros','Admin.crearCentros')->name('crearCentros');
+    Route::post('/crearCentros',[CentresController::class, 'store'])->name('creandoCentro');
+    Route::delete('/deleteCentre/{id}', [CentresController::class, 'destroy'])->name('eliminarCentro');
+    Route::get('/modificarCentros/{id}',[CentresController::class, 'edit'])->name('formModificarCentro');
+    Route::put('/modificarCentre/{id}', [CentresController::class, 'update'])->name('modificarCentro');
 });
 
 

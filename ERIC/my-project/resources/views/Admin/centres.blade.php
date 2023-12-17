@@ -24,19 +24,33 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($usuarios as $usuario): ?>
+
+            @foreach ($centros as $centro)
                 <tr>
-                    <td><?= $usuario['id'] ?></td>
-                    <td><?= $usuario['name'] ?></td>
-                    <td><?= $usuario['adress'] ?></td>
-                    <td><?= $usuario['cp'] ?></td>
-                    <td><?= $usuario['city'] ?></td>
+                    <td><?= $centro['id'] ?></td>
+                    <td><?= $centro['name'] ?></td>
+                    <td><?= $centro['address'] ?></td>
+                    <td><?= $centro['cp'] ?></td>
+                    <td><?= $centro['city'] ?></td>
+                    <td>
+                        <form action="{{ route('eliminarCentro', ['id' => $centro->id]) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit">DELETE</button>
+                        </form>
+                    </td>
+                    <td>
+                        <a href="{{ route('formModificarCentro', ['id' => $centro->id]) }}">EDIT</a>
+                    </td>
                 </tr>
-            <?php endforeach; ?>
+            @endforeach
+
         </tbody>
     </table>
 
     <a href="{{ route('inicio')}}">ADMIN VISTA</a>
+    <a href="{{ route('crearCentros')}}">Add Centre</>
+
     
 </body>
 </html>
