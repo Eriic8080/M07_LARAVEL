@@ -80,8 +80,8 @@ Route::prefix('admin_db')->group(function(){
     Route::view('/crearCentros','Admin.crearCentros')->name('crearCentros');
     Route::post('/crearCentros',[CentresController::class, 'store'])->name('creandoCentro');
     Route::delete('/deleteCentre/{id}', [CentresController::class, 'destroy'])->name('eliminarCentro');
-
-
+    Route::get('/modificarCentros/{id}',[CentresController::class, 'edit'])->name('formModificarCentro');
+    Route::put('/modificarCentre/{id}', [CentresController::class, 'update'])->name('modificarCentro');
 });
 
 
